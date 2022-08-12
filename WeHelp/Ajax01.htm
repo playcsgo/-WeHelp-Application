@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>AJAX 網路連線基本操作</title>
+
+</head>
+<body>
+    <h1>AJAX 網路連線基本操作</h1>
+    <div id="list"></div>
+    <script type="text/javascript">
+    // 先顯示 Loading 的訊息 
+    let list = document.getElementById("list");
+    list.innerHTML="...Loading...";  //也可以放一個GIF讓它轉
+    // 透過AJAX fetch API 連線到遠端的網址, 抓取資料  fetch API一個網路工具
+    /*
+        fetch(網址).then(function(response){
+            //Response 物件, 代表伺服器的回應
+        })
+    */
+   let scr = "https://playcsgo.github.io/-WeHelp-Application/data/products.json"
+   fetch(scr).then(function(response){
+        //console.log(response);
+        //return response.text(); // 用字串的方式取回資料
+        return response.json();   // 將資料用JSON的格式
+   }).then(function(result){
+        //console.log("最終的資料", result); //字串的形式很難用
+        //把抓到的資料 放到畫面上
+        list.innerHTML="";
+        let product;
+        let sum = 0;
+        for(let i=0;i<result.length;i++){
+            product=result[i];
+            list.innerHTML+=product.name.bold()+" - "+product.price+"<hr/>";
+            sum += product.price
+        }
+        let avg = sum/result.length;
+        list.innerHTML+="平均售價:"+avg; // 這邊用+=來一行行加下去
+   });
+    </script>
+</body>
+</html>
+

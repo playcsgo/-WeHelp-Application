@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<title>HTML DOM2 選單開合操作</title>
+<script type="text/javascript">
+function over(element){
+    element.style.color="red";
+}
+function out(element){
+    element.style.color="black";
+}
+
+</script>
+<style type="text/css">
+
+</style>
+
+</head>
+<body>
+    <button onclick="alert('clicked');">Click</button>
+    <span onmouseover="over(this)" 
+    onmouseout="out(this)">Test</span>
+    <div onmouseover="over(this)" 
+    onmouseout="out(this)">Line 2</div>
+    
+</body>
+</html>
