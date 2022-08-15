@@ -13,6 +13,16 @@ function over(element){
 function out(element){
     element.style.color="black";
 }
+function getData(){
+    var req=new XMLHttpRequest();
+    req.open("get", "https://playcsgo.github.io/-WeHelp-Application/schedule.htm");
+    req.onload=function(){
+        var content=document.getElementById("content");
+        content.innerHTML=this.responseText;
+    };
+    req.send();
+}
+
 
 </script>
 <title>WeHelp Application</title>
@@ -42,6 +52,8 @@ function out(element){
     <div class="item2"><span class="topic2">專案作品</span><br>目前還沒有軟體工程專案經驗</div>
 </main>
 
+<h2 onclick="getData();">如果參與這個計畫，會怎麼安排學習時間？</h2>
+<div id="content"></div>
 </div>
 </pre>
 </body>
