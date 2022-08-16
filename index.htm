@@ -22,7 +22,9 @@ function getData(){
     };
     req.send();
 }
-
+function hideTable(){
+    content.classList.toggle("hide");
+}
 
 </script>
 <title>WeHelp Application</title>
@@ -31,7 +33,7 @@ function getData(){
 </head>
 <body>
 
-<h3 onclick="toggleMenu(1);" onmouseover="over(this)" onmouseout="out(this)">兩百字自我介紹</h3>
+<h3 onclick="toggleMenu(1);" onmouseover="over(this)" onmouseout="out(this)" class="question">兩百字自我介紹</h3>
 <pre>
 <main id="question-1">
     <div class="item"><span class="topic2">基本資料</span><br>姓名: 呂兆中, 37歲, 台灣人<br>水瓶座, 男性, 184公分, 82公斤</div>
@@ -42,7 +44,7 @@ function getData(){
 2016-2017. <a href="http://www.sirtec.com.tw/index.php?option=com_content&task=view&id=92&Itemid=95">協益電子</a>(塑膠模具射出組裝)
 2018-2022. <a href="https://plum.wine/">PLUM INC</a> (美國新創 紅酒機)</div>
 </main>
-<h2 onclick="toggleMenu(2);" onmouseover="over(this)" onmouseout="out(this)">為了成為軟體工程師，曾做過什麼努力？若有具體專案作品請分享給我們。</h2>
+<h2 onclick="toggleMenu(2);" onmouseover="over(this)" onmouseout="out(this)" class="question">為了成為軟體工程師，曾做過什麼努力？若有具體專案作品請分享給我們。</h2>
 
 <main id="question-2">
     <div class="item2"><span class="topic2">了解軟體工程師生活</span><br>最早是比對YouTuber們對於軟體工程師的一些描述,<br>看看工作內容以及生活型態是不是我想要前往的方向. <br>主要有看HackBear泰瑞還有SchelleyYuki.<br>確定要走軟體工程之後才開始找尋學習的資料</div>
@@ -52,9 +54,54 @@ function getData(){
     <div class="item2"><span class="topic2">專案作品</span><br>目前還沒有軟體工程專案經驗</div>
 </main>
 
-<h2 onclick="getData();">如果參與這個計畫，會怎麼安排學習時間？</h2>
+<h2 onclick="getData();" onmouseover="over(this)" onmouseout="out(this)" class="question">如果參與這個計畫，會怎麼安排學習時間？</h2>
+<button class="question" onclick="hideTable()">後續表格收放</button>
 <div id="content"></div>
+
+
+<h2>是否有想要加入的軟體公司？為什麼想加入該公司</h2>
+<ul class="company">
+    <li><b>Google:</b> 主要是虛榮心, 再來就是大公司可以認識很多好朋友。 而且Google的資料對日後的職涯有很大的幫助。</li> 
+    <li><b>歐洲新創公司:</b> 喜歡歐洲公司的氣氛。 新創公司會慶祝每個小里程碑, 而大公司則常常視為理所當然的事情, 缺少熱情。</li>
+</ul>
+
+<h2>請描述一件你曾經碰到最困難的事情，如何克服？</h2>
+<button onclick="toggleMenu(3);" onmouseover="over(this)" onmouseout="out(this)" class="question"><b>有克服成功</b></button>
+<div id="question-3">
+    <b>碩士論文.如果困難的定義是挑戰的難度除上我當下的能力, 我認為碩士論文是最難的.</b> 
+    <br>困難點是蒐集資料, 設備搭建, 搭設控制系統, 開會, 撰寫, 報告, 答辯)用英文. 當時的選的題目做六個自由度的平台來模擬路面, 用以測試四分之一模擬汽車的懸吊系統. 
+    <br>(後半段測試懸吊系統的部分是另一個博士生的論文). 如何克服: 簡單說就是埋頭苦幹與夥伴. 那段時間就是宿舍圖書館或是宿舍實驗室兩點一線. 
+    <br>看得慢就慢慢看. 看不懂就問老師或是問其他老師, 電路不懂就問學校技工, 有設備的問題就找廠商. 
+    <br>在這個階段短短幾個月是我成長最多幾個月, 不單是技能的整合, 更多的是我可以做到的自信. 我到現在都很崇拜那個時候的自己.
 </div>
+<button onclick="toggleMenu(4);" onmouseover="over(this)" onmouseout="out(this)" class="question"><b>沒克服成功</b></button>
+<div id="question-4">
+    <b>另一個特別想講的是面試Google的供應鏈經理.</b>
+    <br>這個對我來說是絕對意義上的最難, 我有個同事先進Google的這個缺, 建議我也面試看看. 
+    <br>我自認為相關工作經驗跟能力都不比他差. 也看了很多面試Google需要注意的事項以及履歷的撰寫. 還去上了供應鏈矩陣的課程. 
+    <br>上海Google看了我的履歷也說履歷不錯, 會拿給部門主管. 但是後來連收到拒絕的回覆都沒有.  
+    <br>同樣的事情在台灣Google也再次發生. 準備面試的那段時間, 我覺得很有活力. 人生又充滿了希望. 但是連面試的機會都沒拿到. 
+    <br>我理解世界上優秀的人太多了. 他們一定比我更適合這個缺. 這個事情上, 我唯一克服的, 是讓自己不要因為失望就一蹶不振. 
+</div>
+
+<h2>關於這份申請網頁，請分享一個你開發時的技術心得。</h2>
+<div>
+    用AJAX做的時間安排表格。
+    表格的程式碼好長, 寫在index裡面對於之後在Visual Studio捲動會造成不便。</div>
+
+<h2>從上次提出申請至今，多做了哪些努力？( 第一次申請不用回答 )</h2>
+<div>
+    首次申請
+</div>
+
+<h2>其他想要對我們說的事情？</h2>
+<div>
+    嗯…謝謝吧.  
+    彭彭的教學課程是我目前看到最有系統而且效率最高的學習管道
+    以實作夾帶導理論的方式讓人更能接受與記憶，著實為初學者福音。</main>
+    這次的WeHelp Bootcamp的受訓計畫對我後續的人生規劃很重要，<b>我很想參加</b>。
+</div>
+
 </pre>
 </body>
 </html>

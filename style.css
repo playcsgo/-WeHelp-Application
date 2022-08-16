@@ -5,18 +5,18 @@ main{ /* 容器 */
     display:flex; flex-wrap:wrap; /* 有flex-wrap才會換行*/
     justify-content:start;  
     align-items:stretch;  
-    background-color:#cccccc;
+    /*background-color:#cccccc*/;
 }
 main>.item{/* 容器中的項目 */
     flex:none;
     width:270px;margin:10px; /* (270 + 10) *4*/
-    background-color:#ffcccc;
+    /*background-color:#ffcccc;*/
 }
 
 main>.item2{/* 容器中的項目 */
     flex:auto;
     margin:10px; 
-    background-color:#bbcccc;
+    /*background-color:#bbcccc;*/
 }
 
 /*順序要對  不然要寫更多的code*/
@@ -31,3 +31,10 @@ main>.item2{/* 容器中的項目 */
     }
 }
 .hide{display:none;}
+
+.question:hover{
+    cursor: pointer;
+}
+.company{
+    line-height:10px;
+}
