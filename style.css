@@ -5,7 +5,7 @@ main{ /* 容器 */
     display:flex; flex-wrap:wrap; /* 有flex-wrap才會換行*/
     justify-content:start;  
     align-items:stretch;  
-    /*background-color:#cccccc*/;
+    /*background-color:#cccccc;*/
 }
 main>.item{/* 容器中的項目 */
     flex:none;
