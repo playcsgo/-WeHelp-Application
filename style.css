@@ -1,3 +1,9 @@
+.topic{
+    color:rgb(0, 140, 255);
+    display: flex;
+    justify-content: center;    
+    align-items: center;  
+}
 body{margin:2px}
 .topic2{font-weight:bolder;}
 
