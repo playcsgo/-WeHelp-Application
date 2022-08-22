@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>5_Canvas繪圖-檔案上傳下載</title>
+<script type="text/javascript">
+var cvs, ctx;
+window.onload=function(){
+    cvs=document.getElementById("cvs");
+    ctx=cvs.getContext("2d");   //2d要小寫
+    //載入影像
+    /*
+    var img=new Image();  //製作影像物件
+    img.src="cage.jpg";   //指定影像路徑
+    img.onload=function(){
+        ctx.drawImage(this,0,0,cvs.width, cvs.height); // (影像物件,x座標,y座標,x尺寸,y座標)
+    // 影像處理用本機處理會無法處理, 有跨網域的問題
+    };
+    */
+};
+
+function invertColor(){
+    var pixels=ctx.getImageData(0,0,cvs.width,cvs.height); // imageData物件
+    var data=pixels.data; //一個像素佔據四個資料(bytes)  r g b a 範圍(0~255)
+    for(var i=0; i<data.length;i+=4){
+        data[i]=255-data[i]; //紅色
+        data[i+1]=255-data[i+1]; //綠色
+        data[i+2]=255-data[i+2]; //藍色
+        // i+3  alphy不用處理
+    }
+    ctx.putImageData(pixels,0,0);
+    alert("look");
+}
+
+function loadFile(input){
+    var file=input.files[0];
+    var src=URL.createObjectURL(file); //URL是系統內建的物件.  把檔案物件轉換成一個網址的型態  拿該網址來利用
+    var img=new Image();
+    img.src=src;
+    img.onload=function(){
+        ctx.drawImage(this, 0, 0, cvs.width, cvs.height);
+    }; 
+}
+
+</script>
+</style>
+</head>
+<body>
+    <input type="file" onchage="loadFile(this);" />
+<div><button onclick="invertColor();">顏色反轉</button></div>
+<canvas id="cvs" width="800" height="600" style="border:1px solid #000000"></canvas>
+</body>
+</html>
